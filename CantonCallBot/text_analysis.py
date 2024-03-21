@@ -29,7 +29,7 @@ class Call:
             prompt = hub.pull("rlm/rag-prompt")
 
             # TODO: Missing ChatHistory
-            self.rag_chain = ({"context": retriever | self._format_docs | MessagesPlaceholder(variable_name="chat_history"), "question": RunnablePassthrough()}
+            self.rag_chain = ({"context": retriever | self._format_docs, "question": RunnablePassthrough()}
                               | prompt
                               | self.chat
                               | StrOutputParser()

@@ -2,7 +2,7 @@
 
 
 class VoiceOutput:
-    def __init__(self, text):
+    def __init__(self):
         pass
 
     def play(self):
