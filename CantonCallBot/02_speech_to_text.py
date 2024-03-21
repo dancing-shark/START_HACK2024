@@ -1,6 +1,6 @@
 from transformers import Wav2Vec2ForCTC, AutoProcessor
 import torch
-from record_audio import record_audio
+from CantonCallBot.resources.record_audio import record_audio
 
 model_id = "facebook/mms-1b-all"
 
@@ -33,6 +33,20 @@ def transcribe(recording, sample_rate=16000):
 
     return transcription
 
+
+def transcribe_google(audio):
+    # recognize speech using Google Speech Recognition
+    try:
+        # for testing purposes, we're just using the default API key
+        # to use another API key, use `r.recognize_google(audio, key="GOOGLE_SPEECH_RECOGNITION_API_KEY")`
+        # instead of `r.recognize_google(audio)`
+        print("Google Speech Recognition thinks you said " + r.recognize_google(audio))
+        return r.recognize_google(audio)
+    except sr.UnknownValueError:
+        print("Google Speech Recognition could not understand audio")
+    except sr.RequestError as e:
+        print("Could not request results from Google Speech Recognition service; {0}".format(e))
+    return "error"
 
 
 def record_and_transcribe() -> str:
