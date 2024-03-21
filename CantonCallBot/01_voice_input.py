@@ -10,13 +10,14 @@ def record() -> any:
 
 
 from flask import Flask, render_template
-from flask_socketio import SocketIO
+from flask_socketio import SocketIO, emit
 import wave
 from flask_cors import CORS
+import eventlet
 
 app = Flask(__name__)
 CORS(app)
-socketio = SocketIO(app,debug=True,cors_allowed_origins='*',async_mode='eventlet')
+socketio = SocketIO(app,debug=True,cors_allowed_origins='*')
 
 counter = 0
 
@@ -43,6 +44,10 @@ def save_audio_chunk(audio_data, filename=f"received_audio_{counter}.wav"):
     print(f"Audio chunk saved to {filename}")
     counter += 1
 
+@socketio.on('message')
+def handle_message(message):
+    print('received message: ' + message)
+    emit('message', {'data': message})
 
 if __name__ == '__main__':
     socketio.run(app, host="0.0.0.0", port=8000, debug= True, allow_unsafe_werkzeug=True)
