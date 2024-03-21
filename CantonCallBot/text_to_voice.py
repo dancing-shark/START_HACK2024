@@ -27,3 +27,5 @@ class TextToVoice:
 
 
 
+# text_to_voice = TextToVoice(use_elevenlabs_api=True)
+# text_to_voice.generate("Your text here")
