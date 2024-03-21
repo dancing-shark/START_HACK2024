@@ -14,8 +14,7 @@ demo_chat_history = ChatMessageHistory()
 
 prompt = ChatPromptTemplate.from_messages(
     [
-        (
-            "system",
+        ("system",
             "You are a helpful assistant. Answer all questions to the best of your ability. Your name is Peter",
         ),
         MessagesPlaceholder(variable_name="messages"), ("human", "{input}")
