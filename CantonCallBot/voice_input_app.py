@@ -1,20 +1,7 @@
-import speech_recognition as sr
-
-def record() -> any:
-    r = sr.Recognizer()
-    with sr.Microphone() as source:
-       print("Say something!")
-       audio = r.listen(source)
-    return audio
-
-
-
 from flask import Flask, render_template
 from flask_socketio import SocketIO, emit
 import wave
 from flask_cors import CORS
-from 02_speech_to_text import transcribe
-import eventlet
 
 app = Flask(__name__)
 CORS(app)
