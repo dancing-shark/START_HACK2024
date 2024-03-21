@@ -1,6 +1,8 @@
+from speech_recognition.__main__ import r
 from transformers import Wav2Vec2ForCTC, AutoProcessor
 import torch
 from CantonCallBot.resources.record_audio import record_audio
+import speech_recognition as sr
 
 model_id = "facebook/mms-1b-all"
 
@@ -9,7 +11,7 @@ processor = AutoProcessor.from_pretrained(model_id)
 model = Wav2Vec2ForCTC.from_pretrained(model_id)
 
 print("Model loaded.")
-def transcribe(recording, sample_rate=16000):
+def transcribe(recording, sample_rate=48000):
     """
     Transcribe recorded audio to text.
 
