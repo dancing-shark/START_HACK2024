@@ -1,4 +1,3 @@
-
 from langchain import hub
 import langchain_core.prompts
 from langchain_community.chat_message_histories.in_memory import ChatMessageHistory
@@ -39,21 +38,24 @@ class Call:
 
             print(self.rag_chain.dict())
 
-
-    def process(self, text: str, language: str = "de") -> str:
-        """Process the user's input keeping the chat history and return the AI's response."""
-        self.protokoll.language = language
-        self.chat_history.add_user_message(text)
-        response = self.chain.invoke({"messages": self.chat_history.messages})
-        self.chat_history.add_ai_message(response.content)
-        return response.content
+    # def process(self, text: str, language: str = "de") -> str:
+    #     """Process the user's input keeping the chat history and return the AI's response."""
+    #     self.protokoll.language = language
+    #     self.chat_history.add_user_message(text)
+    #     response = self.chain.invoke({"messages": self.chat_history.messages})
+    #     self.chat_history.add_ai_message(response.content)
+    #     return response.content
 
     def _format_docs(self, docs) -> str:
         return "\n\n".join(doc.page_content for doc in docs)
 
     def process_with_retrieval(self, text: str, language: str = "de") -> str:
         """Process the user's input keeping the chat history, retrieval and return the AI's response."""
+        self.protokoll.language = language
+        # Give message history
         self.chat_history.add_user_message(text)
+        self.chain.invoke({"messages": self.chat_history.messages})
+
         response = self.rag_chain.invoke(text)
         self.chat_history.add_ai_message(response)
         return response
@@ -61,9 +63,6 @@ class Call:
     def end_call(self):
         self.protokoll.end_time = datetime.now()
         return self.protokoll
-
-
-
 
 
 """
