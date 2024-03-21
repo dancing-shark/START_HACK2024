@@ -1,8 +1,5 @@
 from transformers import Wav2Vec2ForCTC, AutoProcessor
 import torch
-from CantonCallBot.resources.record_audio import record_audio
-
-
 
 
 class VoiceToText:
