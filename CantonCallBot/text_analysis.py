@@ -24,9 +24,7 @@ class Call:
         if embeddings_model and path_db:
             self.embeddings_model = embeddings_model
             self.vectorstore = Chroma(persist_directory=path_db, embedding_function=self.embeddings_model)
-            retriever = self.vectorstore.as_retriever()
-            x = retriever.invoke("gib mir kontakt informationen von der Verwaltung")
-            print(x)
+            retriever = self.vectorstore.as_retriever(search_type="mmr", search_kwargs={'k': 6, 'lambda_mult': 0.25})
             prompt = hub.pull("rlm/rag-prompt")
 
             # TODO: Missing ChatHistory
