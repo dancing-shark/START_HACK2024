@@ -14,7 +14,7 @@ from datetime import datetime
 
 
 class Call:
-    def __init__(self, number: int, chat: ChatGroq, embeddings_model: CohereEmbeddings = None, path_db: str = None):
+    def __init__(self, number: int, chat: ChatGroq, embeddings_model: CohereEmbeddings, path_db: str):
         self.protokoll = Call_protokoll(number=number, start_time=datetime.now())
         self.chat_history = ChatMessageHistory()
         self.chat = chat
@@ -24,8 +24,10 @@ class Call:
         self.chain = prompt | chat
         if embeddings_model and path_db:
             self.embeddings_model = embeddings_model
-            self.vectorstore = Chroma(persist_directory=path_db, embedding_function=embeddings_model)
+            self.vectorstore = Chroma(persist_directory=path_db, embedding_function=self.embeddings_model)
             retriever = self.vectorstore.as_retriever()
+            x = retriever.invoke("gib mir kontakt informationen von der Verwaltung")
+            print(x)
             prompt = hub.pull("rlm/rag-prompt")
 
             # TODO: Missing ChatHistory
@@ -34,6 +36,9 @@ class Call:
                               | self.chat
                               | StrOutputParser()
                               )
+
+            print(self.rag_chain.dict())
+
 
     def process(self, text: str, language: str = "de") -> str:
         """Process the user's input keeping the chat history and return the AI's response."""

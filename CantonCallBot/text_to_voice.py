@@ -9,8 +9,8 @@ from transformers import VitsTokenizer, VitsModel, set_seed
 
 class TextToVoice:
     def __init__(self):
-        self.tokenizer = VitsTokenizer.from_pretrained("facebook/mms-tts-eng")
-        self.model = VitsModel.from_pretrained("facebook/mms-tts-eng")
+        self.tokenizer = VitsTokenizer.from_pretrained("facebook/mms-tts-deu")
+        self.model = VitsModel.from_pretrained("facebook/mms-tts-deu")
 
     def generate(self, text: str):
         inputs = self.tokenizer(text=text, return_tensors="pt")
