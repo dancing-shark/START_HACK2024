@@ -1,0 +1,593 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		50ECB6832BACC048009DFB20 /* nipa_assistant_appApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50ECB6822BACC048009DFB20 /* nipa_assistant_appApp.swift */; };
+		50ECB6852BACC048009DFB20 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50ECB6842BACC048009DFB20 /* ContentView.swift */; };
+		50ECB6872BACC048009DFB20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50ECB6862BACC048009DFB20 /* Assets.xcassets */; };
+		50ECB68A2BACC048009DFB20 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50ECB6892BACC048009DFB20 /* Preview Assets.xcassets */; };
+		50ECB6942BACC049009DFB20 /* nipa_assistant_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50ECB6932BACC049009DFB20 /* nipa_assistant_appTests.swift */; };
+		50ECB69E2BACC049009DFB20 /* nipa_assistant_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50ECB69D2BACC049009DFB20 /* nipa_assistant_appUITests.swift */; };
+		50ECB6A02BACC049009DFB20 /* nipa_assistant_appUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50ECB69F2BACC049009DFB20 /* nipa_assistant_appUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		50ECB6902BACC049009DFB20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 50ECB6772BACC047009DFB20 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 50ECB67E2BACC048009DFB20;
+			remoteInfo = nipa_assistant_app;
+		};
+		50ECB69A2BACC049009DFB20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 50ECB6772BACC047009DFB20 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 50ECB67E2BACC048009DFB20;
+			remoteInfo = nipa_assistant_app;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		50ECB67F2BACC048009DFB20 /* nipa_assistant_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nipa_assistant_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		50ECB6822BACC048009DFB20 /* nipa_assistant_appApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nipa_assistant_appApp.swift; sourceTree = "<group>"; };
+		50ECB6842BACC048009DFB20 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		50ECB6862BACC048009DFB20 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		50ECB6892BACC048009DFB20 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		50ECB68F2BACC049009DFB20 /* nipa_assistant_appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nipa_assistant_appTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		50ECB6932BACC049009DFB20 /* nipa_assistant_appTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nipa_assistant_appTests.swift; sourceTree = "<group>"; };
+		50ECB6992BACC049009DFB20 /* nipa_assistant_appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nipa_assistant_appUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		50ECB69D2BACC049009DFB20 /* nipa_assistant_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nipa_assistant_appUITests.swift; sourceTree = "<group>"; };
+		50ECB69F2BACC049009DFB20 /* nipa_assistant_appUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nipa_assistant_appUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		50ECB67C2BACC048009DFB20 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50ECB68C2BACC049009DFB20 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50ECB6962BACC049009DFB20 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		50ECB6762BACC047009DFB20 = {
+			isa = PBXGroup;
+			children = (
+				50ECB6812BACC048009DFB20 /* nipa_assistant_app */,
+				50ECB6922BACC049009DFB20 /* nipa_assistant_appTests */,
+				50ECB69C2BACC049009DFB20 /* nipa_assistant_appUITests */,
+				50ECB6802BACC048009DFB20 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		50ECB6802BACC048009DFB20 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				50ECB67F2BACC048009DFB20 /* nipa_assistant_app.app */,
+				50ECB68F2BACC049009DFB20 /* nipa_assistant_appTests.xctest */,
+				50ECB6992BACC049009DFB20 /* nipa_assistant_appUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		50ECB6812BACC048009DFB20 /* nipa_assistant_app */ = {
+			isa = PBXGroup;
+			children = (
+				50ECB6822BACC048009DFB20 /* nipa_assistant_appApp.swift */,
+				50ECB6842BACC048009DFB20 /* ContentView.swift */,
+				50ECB6862BACC048009DFB20 /* Assets.xcassets */,
+				50ECB6882BACC048009DFB20 /* Preview Content */,
+			);
+			path = nipa_assistant_app;
+			sourceTree = "<group>";
+		};
+		50ECB6882BACC048009DFB20 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				50ECB6892BACC048009DFB20 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		50ECB6922BACC049009DFB20 /* nipa_assistant_appTests */ = {
+			isa = PBXGroup;
+			children = (
+				50ECB6932BACC049009DFB20 /* nipa_assistant_appTests.swift */,
+			);
+			path = nipa_assistant_appTests;
+			sourceTree = "<group>";
+		};
+		50ECB69C2BACC049009DFB20 /* nipa_assistant_appUITests */ = {
+			isa = PBXGroup;
+			children = (
+				50ECB69D2BACC049009DFB20 /* nipa_assistant_appUITests.swift */,
+				50ECB69F2BACC049009DFB20 /* nipa_assistant_appUITestsLaunchTests.swift */,
+			);
+			path = nipa_assistant_appUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		50ECB67E2BACC048009DFB20 /* nipa_assistant_app */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50ECB6A32BACC049009DFB20 /* Build configuration list for PBXNativeTarget "nipa_assistant_app" */;
+			buildPhases = (
+				50ECB67B2BACC048009DFB20 /* Sources */,
+				50ECB67C2BACC048009DFB20 /* Frameworks */,
+				50ECB67D2BACC048009DFB20 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = nipa_assistant_app;
+			productName = nipa_assistant_app;
+			productReference = 50ECB67F2BACC048009DFB20 /* nipa_assistant_app.app */;
+			productType = "com.apple.product-type.application";
+		};
+		50ECB68E2BACC049009DFB20 /* nipa_assistant_appTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50ECB6A62BACC049009DFB20 /* Build configuration list for PBXNativeTarget "nipa_assistant_appTests" */;
+			buildPhases = (
+				50ECB68B2BACC049009DFB20 /* Sources */,
+				50ECB68C2BACC049009DFB20 /* Frameworks */,
+				50ECB68D2BACC049009DFB20 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				50ECB6912BACC049009DFB20 /* PBXTargetDependency */,
+			);
+			name = nipa_assistant_appTests;
+			productName = nipa_assistant_appTests;
+			productReference = 50ECB68F2BACC049009DFB20 /* nipa_assistant_appTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		50ECB6982BACC049009DFB20 /* nipa_assistant_appUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50ECB6A92BACC049009DFB20 /* Build configuration list for PBXNativeTarget "nipa_assistant_appUITests" */;
+			buildPhases = (
+				50ECB6952BACC049009DFB20 /* Sources */,
+				50ECB6962BACC049009DFB20 /* Frameworks */,
+				50ECB6972BACC049009DFB20 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				50ECB69B2BACC049009DFB20 /* PBXTargetDependency */,
+			);
+			name = nipa_assistant_appUITests;
+			productName = nipa_assistant_appUITests;
+			productReference = 50ECB6992BACC049009DFB20 /* nipa_assistant_appUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		50ECB6772BACC047009DFB20 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1530;
+				LastUpgradeCheck = 1530;
+				TargetAttributes = {
+					50ECB67E2BACC048009DFB20 = {
+						CreatedOnToolsVersion = 15.3;
+					};
+					50ECB68E2BACC049009DFB20 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = 50ECB67E2BACC048009DFB20;
+					};
+					50ECB6982BACC049009DFB20 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = 50ECB67E2BACC048009DFB20;
+					};
+				};
+			};
+			buildConfigurationList = 50ECB67A2BACC047009DFB20 /* Build configuration list for PBXProject "nipa_assistant_app" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 50ECB6762BACC047009DFB20;
+			productRefGroup = 50ECB6802BACC048009DFB20 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				50ECB67E2BACC048009DFB20 /* nipa_assistant_app */,
+				50ECB68E2BACC049009DFB20 /* nipa_assistant_appTests */,
+				50ECB6982BACC049009DFB20 /* nipa_assistant_appUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		50ECB67D2BACC048009DFB20 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50ECB68A2BACC048009DFB20 /* Preview Assets.xcassets in Resources */,
+				50ECB6872BACC048009DFB20 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50ECB68D2BACC049009DFB20 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50ECB6972BACC049009DFB20 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		50ECB67B2BACC048009DFB20 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50ECB6852BACC048009DFB20 /* ContentView.swift in Sources */,
+				50ECB6832BACC048009DFB20 /* nipa_assistant_appApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50ECB68B2BACC049009DFB20 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50ECB6942BACC049009DFB20 /* nipa_assistant_appTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50ECB6952BACC049009DFB20 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50ECB69E2BACC049009DFB20 /* nipa_assistant_appUITests.swift in Sources */,
+				50ECB6A02BACC049009DFB20 /* nipa_assistant_appUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		50ECB6912BACC049009DFB20 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 50ECB67E2BACC048009DFB20 /* nipa_assistant_app */;
+			targetProxy = 50ECB6902BACC049009DFB20 /* PBXContainerItemProxy */;
+		};
+		50ECB69B2BACC049009DFB20 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 50ECB67E2BACC048009DFB20 /* nipa_assistant_app */;
+			targetProxy = 50ECB69A2BACC049009DFB20 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		50ECB6A12BACC049009DFB20 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		50ECB6A22BACC049009DFB20 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		50ECB6A42BACC049009DFB20 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"nipa_assistant_app/Preview Content\"";
+				DEVELOPMENT_TEAM = RF5MBDMVN8;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "start24-nipa.nipa-assistant-app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		50ECB6A52BACC049009DFB20 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"nipa_assistant_app/Preview Content\"";
+				DEVELOPMENT_TEAM = RF5MBDMVN8;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "start24-nipa.nipa-assistant-app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		50ECB6A72BACC049009DFB20 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RF5MBDMVN8;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "start24-nipa.nipa-assistant-appTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/nipa_assistant_app.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/nipa_assistant_app";
+			};
+			name = Debug;
+		};
+		50ECB6A82BACC049009DFB20 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RF5MBDMVN8;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "start24-nipa.nipa-assistant-appTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/nipa_assistant_app.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/nipa_assistant_app";
+			};
+			name = Release;
+		};
+		50ECB6AA2BACC049009DFB20 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RF5MBDMVN8;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "start24-nipa.nipa-assistant-appUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = nipa_assistant_app;
+			};
+			name = Debug;
+		};
+		50ECB6AB2BACC049009DFB20 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RF5MBDMVN8;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "start24-nipa.nipa-assistant-appUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = nipa_assistant_app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		50ECB67A2BACC047009DFB20 /* Build configuration list for PBXProject "nipa_assistant_app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50ECB6A12BACC049009DFB20 /* Debug */,
+				50ECB6A22BACC049009DFB20 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		50ECB6A32BACC049009DFB20 /* Build configuration list for PBXNativeTarget "nipa_assistant_app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50ECB6A42BACC049009DFB20 /* Debug */,
+				50ECB6A52BACC049009DFB20 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		50ECB6A62BACC049009DFB20 /* Build configuration list for PBXNativeTarget "nipa_assistant_appTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50ECB6A72BACC049009DFB20 /* Debug */,
+				50ECB6A82BACC049009DFB20 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		50ECB6A92BACC049009DFB20 /* Build configuration list for PBXNativeTarget "nipa_assistant_appUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50ECB6AA2BACC049009DFB20 /* Debug */,
+				50ECB6AB2BACC049009DFB20 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 50ECB6772BACC047009DFB20 /* Project object */;
+}
