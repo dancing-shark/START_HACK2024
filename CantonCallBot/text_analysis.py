@@ -24,16 +24,16 @@ class Call:
             retriever = self.vectorstore.as_retriever(search_type="mmr", search_kwargs={'k': 6, 'lambda_mult': 0.25})
             prompt = hub.pull("rlm/rag-prompt")
 
-            self.qa_chain = RetrievalQA.from_chain_type(
-                chat,
-                retriever=retriever,
-                chain_type_kwargs={"prompt": prompt}
-            )
-            # self.rag_chain = ({"context": retriever | self._format_docs, "question": RunnablePassthrough()}
-            #                   | prompt
-            #                   | self.chat
-            #                   | StrOutputParser()
-            #                   )
+            # self.qa_chain = RetrievalQA.from_chain_type(
+            #     chat,
+            #     retriever=retriever,
+            #     chain_type_kwargs={"prompt": prompt}
+            # )
+            self.rag_chain = ({"context": retriever | self._format_docs, "question": RunnablePassthrough()}
+                              | prompt
+                              | self.chat
+                              | StrOutputParser()
+                              )
 
     # def process(self, text: str, language: str = "de") -> str:
     #     """Process the user's input keeping the chat history and return the AI's response."""
@@ -50,13 +50,12 @@ class Call:
         """Process the user's input keeping the chat history, retrieval and return the AI's response."""
         self.protokoll.language = language
         # Give message history
-        # self.chat_history.add_user_message(text)
-        # self.chain.invoke({"messages": self.chat_history.messages})
-        introduction = Chatbot_personality.task
+        self.chat_history.add_user_message(text)
+        self.chain.invoke({"messages": self.chat_history.messages})
 
-        response = self.qa_chain({"query": introduction.join(text)})
-        # self.chat_history.add_ai_message(response)
-        return response["result"]
+        response = self.rag_chain.invoke(text)
+        self.chat_history.add_ai_message(response)
+        return response
 
     def end_call(self):
         self.protokoll.end_time = datetime.now()
