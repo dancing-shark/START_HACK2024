@@ -10,31 +10,30 @@ from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from data_models import *
 from langchain_community.vectorstores import Chroma
 from datetime import datetime
-
+from langchain.chains import RetrievalQA
 
 class Call:
     def __init__(self, number: int, chat: ChatGroq, embeddings_model: CohereEmbeddings, path_db: str):
         self.protokoll = Call_protokoll(number=number, start_time=datetime.now())
         self.chat_history = ChatMessageHistory()
         self.chat = chat
-        prompt = ChatPromptTemplate.from_messages([
-            ("system", Chatbot_personality.task), MessagesPlaceholder(variable_name="messages")
-        ])
-        self.chain = prompt | chat
+
         if embeddings_model and path_db:
             self.embeddings_model = embeddings_model
             self.vectorstore = Chroma(persist_directory=path_db, embedding_function=self.embeddings_model)
             retriever = self.vectorstore.as_retriever(search_type="mmr", search_kwargs={'k': 6, 'lambda_mult': 0.25})
             prompt = hub.pull("rlm/rag-prompt")
 
-            # TODO: Missing ChatHistory
-            self.rag_chain = ({"context": retriever | self._format_docs, "question": RunnablePassthrough()}
-                              | prompt
-                              | self.chat
-                              | StrOutputParser()
-                              )
-
-            print(self.rag_chain.dict())
+            self.qa_chain = RetrievalQA.from_chain_type(
+                chat,
+                retriever=retriever,
+                chain_type_kwargs={"prompt": prompt}
+            )
+            # self.rag_chain = ({"context": retriever | self._format_docs, "question": RunnablePassthrough()}
+            #                   | prompt
+            #                   | self.chat
+            #                   | StrOutputParser()
+            #                   )
 
     # def process(self, text: str, language: str = "de") -> str:
     #     """Process the user's input keeping the chat history and return the AI's response."""
@@ -51,12 +50,13 @@ class Call:
         """Process the user's input keeping the chat history, retrieval and return the AI's response."""
         self.protokoll.language = language
         # Give message history
-        self.chat_history.add_user_message(text)
-        self.chain.invoke({"messages": self.chat_history.messages})
+        # self.chat_history.add_user_message(text)
+        # self.chain.invoke({"messages": self.chat_history.messages})
+        introduction = Chatbot_personality.task
 
-        response = self.rag_chain.invoke(text)
-        self.chat_history.add_ai_message(response)
-        return response
+        response = self.qa_chain({"query": introduction.join(text)})
+        # self.chat_history.add_ai_message(response)
+        return response["result"]
 
     def end_call(self):
         self.protokoll.end_time = datetime.now()
