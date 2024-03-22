@@ -12,7 +12,7 @@ class VoiceToText:
     def transscribe(self, recording, sample_rate=16000):
         # Preprocess the recording
         input_values = self.processor(recording, sampling_rate=sample_rate, return_tensors="pt").input_values
-
+        input_values = input_values.float()
         # Perform the prediction
         with torch.no_grad():
             logits = self.model(input_values).logits
