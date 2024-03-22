@@ -1,4 +1,5 @@
 import base64
+import os
 
 import numpy as np
 from flask import Flask, render_template
@@ -8,10 +9,17 @@ from flask_cors import CORS
 import speech_recognition as sr
 import soundfile as sf
 import torchaudio
+from langchain_community.embeddings.cohere import CohereEmbeddings
+from langchain_groq import ChatGroq
 from torchaudio.transforms import Resample
 
 import CantonCallBot.voice_to_text as voice_to_text
 from pydub import AudioSegment
+
+from CantonCallBot.text_analysis import Call
+from CantonCallBot.text_to_voice import TextToVoice
+from CantonCallBot.voice_input import VoiceInput
+from CantonCallBot.voice_output_elevenLabs import TextToVoice as TTT
 
 app = Flask(__name__)
 CORS(app)
@@ -51,6 +59,7 @@ def save_audio_chunk(audio_data):
     wav_file.close()
 
 
+
     with wave.open(filename, 'rb') as wav_file:
         frames = wav_file.readframes(wav_file.getnframes())
         # Umwandlung in ein NumPy-Array
@@ -77,7 +86,16 @@ def handle_message(audio_data):
 def handle_message(audio_data):
     print('received message')
 
-    save_audio_chunk_whole(audio_data)
+    filename = save_audio_chunk_whole(audio_data)
+    res = transcribe_audio()
+    res = call.process_with_retrieval(res)
+    ttt.generate(res)
+    send_wav_file("synthesized_speech_vits.wav")
+
+
+
+
+
 
 def load_audio_file(file_path):
     global counter_whole
@@ -105,7 +123,7 @@ def transform_audio(file_path):
     torchaudio.save(target_path, resampled_waveform, 16000)
 
 
-def transcribe_audio():
+def transcribe_audio()-> str:
     global counter_whole
     transform_audio(f"resources/voice_inputs/whole_rec/received_audio_whole_{counter_whole}.wav")
     target_path = f"resources/voice_inputs/whole_rec/received_audio_whole_{counter_whole}_16.wav"
@@ -116,6 +134,7 @@ def transcribe_audio():
     #audio_array = np.frombuffer(res, dtype=np.int32)
     res = vtt.transscribe(mid)
     print(f"Transscribed: {res}")
+    return res
 
 
 def save_audio_chunk_whole(data):
@@ -130,11 +149,12 @@ def save_audio_chunk_whole(data):
         wav_file.setframerate(48000.0)
         wav_file.writeframes(data)
     print(f"Audiodatei gespeichert: {filename}")
-    transcribe_audio()
+
 
     counter_whole = counter_whole + 1
+    return filename
 
-    send_wav_file("resources/voice_inputs/Die Stadt Zürich lie.wav")
+    #send_wav_file("resources/voice_inputs/Die Stadt Zürich lie.wav")
 
 
 def send_wav_file(file_path):
@@ -149,4 +169,19 @@ def send_wav_file(file_path):
 
 
 if __name__ == '__main__':
+    os.environ['COHERE_API_KEY'] = "kWLn4rRF7TgsuA9HdEmfZPH2bH8CYsB4kzgKkjCp"
+
+    chat = ChatGroq(temperature=0, groq_api_key="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",
+                    model_name="mixtral-8x7b-32768")
+    embeddings_model_x = CohereEmbeddings(model="embed-multilingual-v3.0")
+    path = "./chroma_db"
+
+
+    call = Call(1, chat, embeddings_model=embeddings_model_x, path_db=path)
+    mic = VoiceInput()
+    vtt = voice_to_text.VoiceToText()
+    #ttv = TextToVoice()
+    ttt = TTT(use_elevenlabs_api=True)
+
+
     socketio.run(app, host="0.0.0.0", port=8000, debug= True, allow_unsafe_werkzeug=True)

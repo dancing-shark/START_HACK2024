@@ -2,7 +2,7 @@ import requests
 import scipy.io.wavfile
 import numpy as np
 from transformers import VitsTokenizer, VitsModel, set_seed
-
+import torch
 class TextToVoice:
     def __init__(self, use_elevenlabs_api=False):
         self.use_elevenlabs_api = use_elevenlabs_api
@@ -40,7 +40,7 @@ class TextToVoice:
             }
         }
         headers = {
-            "xi-api-key": "d2357064a6d2188c2b1341ad36f17e71",
+            "xi-api-key": "8a5b58459c1d62c3d2cfd78e8dbc98ed",
             "Content-Type": "application/json"
         }
 

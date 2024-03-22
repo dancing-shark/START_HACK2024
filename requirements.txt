@@ -77,3 +77,8 @@ urllib3==2.2.1
 Werkzeug==3.0.1
 wsproto==1.2.0
 yarl==1.9.4
+
+colorlog~=6.8.2
+pygame~=2.5.2
+soundfile~=0.12.1
+torchaudio~=2.2.1

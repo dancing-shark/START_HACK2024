@@ -4,6 +4,7 @@ from voice_to_text import VoiceToText
 from text_to_voice import TextToVoice
 from voice_output import VoiceOutput
 import logging
+from voice_output_elevenLabs import TextToVoice as TTT
 
 from langchain_groq import ChatGroq
 from langchain_community.embeddings.cohere import CohereEmbeddings
@@ -49,11 +50,11 @@ logger.addHandler(console_handler)
 
 
 logger.info("Setting up the environment variables.")
-os.environ['COHERE_API_KEY'] = "zE6fWh7WodD48szFXjx2rX8RPEpAIqNamhjFOBL9"
+os.environ['COHERE_API_KEY'] = "kWLn4rRF7TgsuA9HdEmfZPH2bH8CYsB4kzgKkjCp"
 
 chat = ChatGroq(temperature=0, groq_api_key="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", model_name="mixtral-8x7b-32768")
 embeddings_model_x = CohereEmbeddings(model="embed-multilingual-v3.0")
-path = "./chroma_db_full3"
+path = "./chroma_db"
 
 
 # New Call arived
@@ -62,6 +63,7 @@ mic = VoiceInput()
 vtt = VoiceToText()
 ttv = TextToVoice()
 box = VoiceOutput()
+ttt = TTT(use_elevenlabs_api=True)
 
 logger.info( "Starting the call loop.")
 while True:
@@ -84,8 +86,9 @@ while True:
 
     # 4. text_to_voice
     logger.info("text_to_voice")
-    ttv.generate(res)
+    #ttv.generate(res)
+    ttt.generate(res)
 
     # 5. voice_output
-    logger.info("voice_output")
-    box.play("synthesized_speech.wav")
+    #logger.info("voice_output")
+    #box.play("synthesized_speech.wav")

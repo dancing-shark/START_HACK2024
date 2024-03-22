@@ -52,8 +52,7 @@ class Call:
         self.protokoll.language = language
         # Give message history
         self.chat_history.add_user_message(text)
-        self.chain.invoke({"messages": self.chat_history.messages})
-
+        # self.chain.invoke({"messages": self.chat_history.messages})
         response = self.rag_chain.invoke(text)
         self.chat_history.add_ai_message(response)
         return response
