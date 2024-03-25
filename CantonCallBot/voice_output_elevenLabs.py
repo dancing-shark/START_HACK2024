@@ -4,6 +4,7 @@ import numpy as np
 from transformers import VitsTokenizer, VitsModel, set_seed
 import torch
 class TextToVoice:
+    voice_output_file_path: str = "resources/voice_outputs/synthesized_speech.wav"
     def __init__(self, use_elevenlabs_api=False):
         self.use_elevenlabs_api = use_elevenlabs_api
         if not use_elevenlabs_api:
@@ -26,7 +27,7 @@ class TextToVoice:
         waveform = outputs.waveform[0]
         waveform_np = waveform.cpu().numpy()
         waveform_int16 = np.int16(waveform_np * np.iinfo(np.int16).max)
-        scipy.io.wavfile.write("synthesized_speech_vits.wav", rate=self.model.config.sampling_rate, data=waveform_int16)
+        scipy.io.wavfile.write(self.voice_output_file_path, rate=self.model.config.sampling_rate, data=waveform_int16)
 
     def _generate_with_elevenlabs(self, text: str):
         url = "https://api.elevenlabs.io/v1/text-to-speech/21m00Tcm4TlvDq8ikWAM"
@@ -40,7 +41,7 @@ class TextToVoice:
             }
         }
         headers = {
-            "xi-api-key": "8a5b58459c1d62c3d2cfd78e8dbc98ed",
+            "xi-api-key": "71bebd1159d0398302e431ccfa1ae50a",
             "Content-Type": "application/json"
         }
 
@@ -48,7 +49,7 @@ class TextToVoice:
         if response.status_code == 200:
             # Assuming the API returns a WAV file directly, you'll need to adjust this
             # part if the API returns a link to the file or the file in a different format
-            with open("synthesized_speech_elevenlabs.wav", "wb") as f:
+            with open(self.voice_output_file_path, "wb") as f:
                 f.write(response.content)
         else:
             print("Failed to synthesize speech with ElevenLabs API:", response.text)

@@ -46,16 +46,13 @@ console_handler.setFormatter(formatter)
 # Add the colored handler to the logger
 logger.addHandler(console_handler)
 
-
-
-
 logger.info("Setting up the environment variables.")
 os.environ['COHERE_API_KEY'] = "kWLn4rRF7TgsuA9HdEmfZPH2bH8CYsB4kzgKkjCp"
 
-chat = ChatGroq(temperature=0, groq_api_key="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", model_name="mixtral-8x7b-32768")
+chat = ChatGroq(temperature=0, groq_api_key="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",
+                model_name="mixtral-8x7b-32768")
 embeddings_model_x = CohereEmbeddings(model="embed-multilingual-v3.0")
 path = "./chroma_db"
-
 
 # New Call arived
 call = Call(1, chat, embeddings_model=embeddings_model_x, path_db=path)
@@ -65,30 +62,28 @@ ttv = TextToVoice()
 box = VoiceOutput()
 ttt = TTT(use_elevenlabs_api=True)
 
-logger.info( "Starting the call loop.")
+logger.info("Starting the call loop.")
 while True:
     # 1. voice_input
     logger.info("voice_input")
     res = mic.record_audio()
 
-
     # 2. voice_to_text
     logger.info("voice_to_text")
-    res = vtt.transscribe(res)
+    res = vtt.transcribe(res)
     logger.warning(f"Transscribed: {res}")
 
     # 3. text_analysis
     logger.info("text_analysis")
     res = call.process_with_retrieval(res, "de")
-    #res = call.process(res)
+    # res = call.process(res)
     logger.warning(f"Answer: {res}")
-
 
     # 4. text_to_voice
     logger.info("text_to_voice")
-    #ttv.generate(res)
+    # ttv.generate(res)
     ttt.generate(res)
 
     # 5. voice_output
-    #logger.info("voice_output")
-    #box.play("synthesized_speech.wav")
+    # logger.info("voice_output")
+    # box.play("synthesized_speech.wav")

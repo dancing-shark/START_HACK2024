@@ -49,7 +49,9 @@ class Call:
 
     def process_with_retrieval(self, text: str, language: str = "de") -> str:
         """Process the user's input keeping the chat history, retrieval and return the AI's response."""
+        print("Processing with retrieval")
         self.protokoll.language = language
+
         # Give message history
         self.chat_history.add_user_message(text)
         # self.chain.invoke({"messages": self.chat_history.messages})

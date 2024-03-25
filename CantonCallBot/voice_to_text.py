@@ -8,8 +8,7 @@ class VoiceToText:
         self.processor = AutoProcessor.from_pretrained(model_id)
         self.model = Wav2Vec2ForCTC.from_pretrained(model_id)
 
-
-    def transscribe(self, recording, sample_rate=16000):
+    def transcribe(self, recording, sample_rate=16000):
         # Preprocess the recording
         input_values = self.processor(recording, sampling_rate=sample_rate, return_tensors="pt").input_values
         input_values = input_values.float()

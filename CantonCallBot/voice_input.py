@@ -1,6 +1,7 @@
 import speech_recognition as sr
 import sounddevice as sd
 
+
 class VoiceInput:
     def __init__(self, duration: int = 5, sample_rate: int = 16000):
         self.duration = duration  # Record for 5 seconds
@@ -16,7 +17,8 @@ class VoiceInput:
     def record_audio(self) -> any:
         """Working"""
         print("Recording...")
-        recording = sd.rec(int(self.duration * self.sample_rate), samplerate=self.sample_rate, channels=1, dtype='float32')
+        recording = sd.rec(int(self.duration * self.sample_rate), samplerate=self.sample_rate, channels=1,
+                           dtype='float32')
         sd.wait()  # Wait until recording is finished
         print("Recording stopped.")
         return recording.flatten()
