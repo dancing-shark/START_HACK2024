@@ -1,6 +1,5 @@
 import pygame
 
-
 class VoiceOutput:
     def __init__(self):
         pass
@@ -12,8 +11,3 @@ class VoiceOutput:
         sound.play()
         while pygame.mixer.get_busy():
             pygame.time.delay(100)
-
-
-
-
-

@@ -3,6 +3,8 @@ import numpy as np
 import sounddevice as sd
 import soundfile as sf
 from io import BytesIO
+
+from safetensors import torch
 from transformers import VitsTokenizer, VitsModel, set_seed
 
 class TextToVoice:
