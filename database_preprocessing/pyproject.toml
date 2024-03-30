@@ -1,8 +1,8 @@
 [tool.poetry]
-name = "database-preprocessing"
+name = "database_preprocessing"
 version = "0.1.0"
 description = ""
-authors = ["nicolascampbell <nicodsm7@gmail.com>"]
+authors = ["nicolascampbell","pweissleder","dancing-shark","ivandrenc"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
@@ -15,6 +15,7 @@ chromadb = "^0.4.24"
 langchain = "^0.1.13"
 langchain-groq = "^0.0.1"
 langchainhub = "^0.1.15"
+tqdm = "^4.66.2"
 
 
 [build-system]
