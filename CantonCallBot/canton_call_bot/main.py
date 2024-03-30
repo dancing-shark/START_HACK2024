@@ -52,6 +52,7 @@ load_dotenv(dotenv_path=dotenv_path)
 cohere_api_key = os.getenv('COHERE_API_KEY') 
 groq_api_key = os.getenv('GROQ_API_KEY') 
 path = os.getenv('CHROMA_DB_PATH') 
+store = {}
 
 chat = ChatGroq(temperature=0, groq_api_key=groq_api_key, model_name="mixtral-8x7b-32768")
 embeddings_model_x = CohereEmbeddings(cohere_api_key=cohere_api_key,model="embed-multilingual-v3.0")
@@ -77,15 +78,15 @@ while True:
 
     # 3. text_analysis
     logger.info("text_analysis")
-    res = call.process_with_retrieval(res, "de")
+    res = call.process_with_retrieval(res, "en")
     # res = call.process(res)
     logger.warning(f"Answer: {res}")
 
     # 4. text_to_voice
-    logger.info("text_to_voice")
-    # ttv.generate(res)
-    ttt.generate(res)
+    # logger.info("text_to_voice")
+    # # ttv.generate(res)
+    # ttt.generate(res)
 
     # 5. voice_output
-    logger.info("voice_output")
-    box.play("canton_call_bot/resources/voice_outputs/synthesized_speech.wav")
+    # logger.info("voice_output")
+    # box.play("canton_call_bot/resources/voice_outputs/synthesized_speech.wav")
