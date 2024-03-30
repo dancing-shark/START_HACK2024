@@ -72,12 +72,12 @@ while True:
 
     # 2. voice_to_text
     logger.info("voice_to_text")
-    res = vtt.transcribe(res)
-    logger.warning(f"Transscribed: {res}")
+    language,res = vtt.transcribe(res)
+    logger.warning(f"Transscribed: {res} LANGUAGE {language}")
 
     # 3. text_analysis
     logger.info("text_analysis")
-    res = call.process_with_retrieval(res, "de")
+    res = call.process_with_retrieval(res, language)
     # res = call.process(res)
     logger.warning(f"Answer: {res}")
 

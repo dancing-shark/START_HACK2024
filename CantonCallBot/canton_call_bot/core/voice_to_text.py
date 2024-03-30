@@ -1,5 +1,6 @@
 from transformers import Wav2Vec2ForCTC, AutoProcessor
 import torch
+from langdetect import detect
 
 
 class VoiceToText:
@@ -19,5 +20,5 @@ class VoiceToText:
         # Decode the predicted ids to the transcription
         predicted_ids = torch.argmax(logits, dim=-1)
         transcription = self.processor.batch_decode(predicted_ids)[0]
-
-        return transcription
+        language = detect(transcription)
+        return language,transcription
