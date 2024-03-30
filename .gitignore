@@ -9,7 +9,7 @@ __pycache__/
 
 # Distribution / packaging
 .Python
-CantonCallBot/chroma_db/
+chroma_db/
 build/
 develop-eggs/
 dist/
