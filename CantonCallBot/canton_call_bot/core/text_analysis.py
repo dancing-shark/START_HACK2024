@@ -10,22 +10,23 @@ from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from core.data_models import *
 from langchain_community.vectorstores import Chroma
 from datetime import datetime
-
+from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
 
 class Call:
     def __init__(self, number: int, chat: ChatGroq, embeddings_model: CohereEmbeddings, path_db: str):
         self.protokoll = Call_protokoll(number=number, start_time=datetime.now())
         self.chat_history = ChatMessageHistory()
         self.chat = chat
-        prompt = ChatPromptTemplate.from_messages([
-            ("system", Chatbot_personality.task), MessagesPlaceholder(variable_name="messages")
-        ])
+        prompt = SystemMessage(content=Chatbot_personality.task)
+        prompt = (
+            prompt +"{context}"+"{question}"
+        ) 
         self.chain = prompt | chat
         if embeddings_model and path_db:
             self.embeddings_model = embeddings_model
             self.vectorstore = Chroma(persist_directory=path_db, embedding_function=self.embeddings_model)
             retriever = self.vectorstore.as_retriever(search_type="mmr", search_kwargs={'k': 6, 'lambda_mult': 0.25})
-            prompt = hub.pull("rlm/rag-prompt")
+            print(prompt)
 
             # TODO: Missing ChatHistory
             self.rag_chain = ({"context": retriever | self._format_docs, "question": RunnablePassthrough()}

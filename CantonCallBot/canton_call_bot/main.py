@@ -87,5 +87,5 @@ while True:
     ttt.generate(res)
 
     # 5. voice_output
-    # logger.info("voice_output")
-    # box.play("synthesized_speech.wav")
+    logger.info("voice_output")
+    box.play("canton_call_bot/resources/voice_outputs/synthesized_speech.wav")
