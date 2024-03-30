@@ -6,7 +6,7 @@ import torch
 import os
 class TextToVoice:
     print("Current Working Directory:", os.getcwd())
-    voice_output_file_path: str = "src/resources/voice_outputs/synthesized_speech.wav"
+    voice_output_file_path: str = "canton_call_bot/resources/voice_outputs/synthesized_speech.wav"
     def __init__(self, use_elevenlabs_api=False):
         self.use_elevenlabs_api = use_elevenlabs_api
         if not use_elevenlabs_api:
