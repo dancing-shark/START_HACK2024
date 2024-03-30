@@ -7,7 +7,7 @@ from langchain_core.runnables import RunnablePassthrough
 from langchain_groq import ChatGroq
 from langchain_core.messages import HumanMessage, AIMessage
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
-from data_models import *
+from core.data_models import *
 from langchain_community.vectorstores import Chroma
 from datetime import datetime
 
@@ -36,14 +36,6 @@ class Call:
 
             print(self.rag_chain.dict())
 
-    # def process(self, text: str, language: str = "de") -> str:
-    #     """Process the user's input keeping the chat history and return the AI's response."""
-    #     self.protokoll.language = language
-    #     self.chat_history.add_user_message(text)
-    #     response = self.chain.invoke({"messages": self.chat_history.messages})
-    #     self.chat_history.add_ai_message(response.content)
-    #     return response.content
-
     def _format_docs(self, docs) -> str:
         return "\n\n".join(doc.page_content for doc in docs)
 
@@ -63,14 +55,3 @@ class Call:
         self.protokoll.end_time = datetime.now()
         return self.protokoll
 
-
-"""
-chat = ChatGroq(temperature=0, groq_api_key="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",model_name="mixtral-8x7b-32768")
-embeddings_model = CohereEmbeddings(model="embed-multilingual-v3.0")
-
-
-x = Call(1, chat, embeddings_model)# path
-
-print(x.process("Hallo"))
-
-"""

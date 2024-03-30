@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "database_preprocessing"
+version = "0.1.0"
+description = ""
+authors = ["nicolascampbell","pweissleder","dancing-shark","ivandrenc"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+bs4 = "^0.0.2"
+langchain-text-splitters = "^0.0.1"
+langchain-community = "^0.0.29"
+cohere = "^5.1.2"
+chromadb = "^0.4.24"
+langchain = "^0.1.13"
+langchain-groq = "^0.0.1"
+langchainhub = "^0.1.15"
+tqdm = "^4.66.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

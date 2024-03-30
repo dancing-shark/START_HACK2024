@@ -9,9 +9,21 @@ import re
 from langchain_community.document_loaders import TextLoader
 from langchain_community.document_transformers import BeautifulSoupTransformer
 from langchain_core.documents.base import Document
+from dotenv import load_dotenv
+from tqdm import tqdm
+import argparse
 
-os.environ["COHERE_API_KEY"] = "zE6fWh7WodD48szFXjx2rX8RPEpAIqNamhjFOBL9"
-database_path = './chroma_db_full'
+# Setup argparse
+parser = argparse.ArgumentParser(description='Process HTML files and add them to a vector store.')
+parser.add_argument('--db-destination', type=str, help='Override the database destination path specified in the .env file')
+args = parser.parse_args()
+
+print("Setting up the environment variables.")
+dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
+load_dotenv(dotenv_path=dotenv_path)
+# This is actually not needed. As long as they are in the env is enough. 
+cohere_api_key = os.getenv('COHERE_API_KEY') 
+db_destination = args.db_destination if args.db_destination else os.getenv('CHROMA_DB_RES_PATH')
 
 def normalize_whitespace_and_breaklines(text):
     # Collapse multiple newline characters into a single newline
@@ -55,26 +67,26 @@ def add_documents_to_vectorstore_in_batches( documents, embeddings_model, text_s
     splits = text_splitter.split_documents(documents)
     total_splits = len(splits)
     print(f"Total splits to process: {total_splits}")
-
-    vectorstore = Chroma.from_documents(documents=documents[:1], embedding=embeddings_model,persist_directory=database_path)
-    # Process in batches of 'batch_size'
-    for start_index in range(1, total_splits, batch_size):
+    total_batches = (total_splits + batch_size - 1) // batch_size
+    vectorstore = Chroma.from_documents(documents=documents[:1], embedding=embeddings_model,persist_directory=db_destination)
+    print("Processing batches...")
+    for start_index in tqdm(range(1, total_splits, batch_size), desc="Batches", total=total_batches, unit="batch"):
         end_index = min(start_index + batch_size, total_splits)
         batch_splits = splits[start_index:end_index]
         vectorstore.add_documents(documents=batch_splits, embedding=embeddings_model)
 
-        print(f"Processed batch {start_index//batch_size + 1}/{(total_splits + batch_size - 1) // batch_size}")
     vectorstore.persist() 
     return vectorstore
 
 root_directory = "data"  
 
 # This gets all html files paths recursevely
-html_files = find_html_files(root_directory)
+print("Finding HTML files...")
+html_files = find_html_files(root_directory)[1:100]
 
-html_files = html_files
 documents = []
-for file_path in html_files:
+print("Extracting text from HTML files...")
+for file_path in tqdm(html_files, desc="Extracting HTML", unit="file"):
     # Extract the text content of the html file
     extracted_text = extract_text_from_html(str(file_path)) 
     if extracted_text:
