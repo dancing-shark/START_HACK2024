@@ -11,7 +11,7 @@ from langchain_community.document_transformers import BeautifulSoupTransformer
 from langchain_core.documents.base import Document
 
 os.environ["COHERE_API_KEY"] = "zE6fWh7WodD48szFXjx2rX8RPEpAIqNamhjFOBL9"
-database_path = './chroma_db_full'
+database_path = './chroma_db'
 
 def normalize_whitespace_and_breaklines(text):
     # Collapse multiple newline characters into a single newline

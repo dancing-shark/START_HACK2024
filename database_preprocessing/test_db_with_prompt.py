@@ -15,7 +15,7 @@ from langchain_community.document_loaders import BSHTMLLoader
 def format_docs(documents):
     return "\n\n".join(doc.page_content for doc in documents)
 
-database_path = './chroma_db_full'
+database_path = './chroma_db'
 os.environ["COHERE_API_KEY"] = "2eidazDqcsW3aRIDoIZKcsroe92z5Wx97L53cZk5"
 embeddings_model = CohereEmbeddings(model="embed-multilingual-v3.0")
 # load from disk
