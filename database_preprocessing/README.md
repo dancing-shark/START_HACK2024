@@ -4,17 +4,16 @@ In this subfolder you can find the scrapped data and a little script you can use
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+Remember that a `.env` file is needed on this directory. There is the following expected:
 
-### Prerequisites
-
-Before you begin, ensure you have Python installed on your system. CallBot is compatible with Python 3.7 and above. You can check your Python version by running:
-
-```bash
-python --version
+```env
+COHERE_API_KEY="your_key"
+GROQ_API_KEY="your_key"
+# Here is where the test script will search for db to test it 
+CHROMA_DB_PATH="../chroma_db"
+# Here is where the built version will be saved
+CHROMA_DB_RES_PATH="../chroma_db"
 ```
-
-You  will also need a vector db. The code will expect it to be on this path: `src/chroma_db`
 
 ### Installation
 
@@ -24,7 +23,7 @@ Here are two ways to get you started: using Poetry or pip.
 
 [Poetry](https://python-poetry.org/) is a tool for dependency management and packaging in Python. It allows you to declare the libraries your project depends on and it will manage (install/update) them for you.
 
-2. **Install Poetry**
+1. **Install Poetry**
 
     If you don't have Poetry installed, install it by following the instructions on the official Poetry website.
 
@@ -49,7 +48,7 @@ Here are two ways to get you started: using Poetry or pip.
 
 #### Option 2: Using pip
 
-2. **Create a Virtual Environment**
+1. **Create a Virtual Environment**
 
     It's recommended to create a virtual environment for your project to avoid dependency conflicts. But depends on your setup so up to you.
 
@@ -68,8 +67,6 @@ After installation, you can run the script:
 ```bash
 python vector_db_builder
 ```
-
-Remember that the VoiceBot will expect the db in its own directory. So if you build it please move the folder there.
 
 #### You can also test it with your own prompt
 

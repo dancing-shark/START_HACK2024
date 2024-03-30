@@ -51,10 +51,10 @@ dotenv_path = os.path.join(os.path.dirname(__file__), '..', '.env')
 load_dotenv(dotenv_path=dotenv_path)
 cohere_api_key = os.getenv('COHERE_API_KEY') 
 groq_api_key = os.getenv('GROQ_API_KEY') 
+path = os.getenv('CHROMA_DB_PATH') 
 
 chat = ChatGroq(temperature=0, groq_api_key=groq_api_key, model_name="mixtral-8x7b-32768")
 embeddings_model_x = CohereEmbeddings(cohere_api_key=cohere_api_key,model="embed-multilingual-v3.0")
-path = "src/chroma_db"
 
 # New Call arived
 call = Call(1, chat, embeddings_model=embeddings_model_x, path_db=path)

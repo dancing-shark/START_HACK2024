@@ -129,9 +129,9 @@ if __name__ == '__main__':
     load_dotenv(dotenv_path=dotenv_path)
     cohere_api_key = os.getenv('COHERE_API_KEY') 
     groq_api_key = os.getenv('GROQ_API_KEY') 
+    path = os.getenv('CHROMA_DB_PATH') 
     chat = ChatGroq(temperature=0, groq_api_key=groq_api_key, model_name="mixtral-8x7b-32768")
     embeddings_model_x = CohereEmbeddings(model="embed-multilingual-v3.0")
-    path = "./chroma_db"
 
     call = Call(1, chat, embeddings_model=embeddings_model_x, path_db=path)
     mic = VoiceInput()

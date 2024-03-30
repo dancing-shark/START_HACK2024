@@ -14,7 +14,7 @@ Before you begin, ensure you have Python installed on your system. CallBot is co
 python --version
 ```
 
-You  will also need a vector db. The code will expect it to be on this path: `src/chroma_db`
+You  will also need a vector db. The code will expect it to be on the root folder of the project. 
 
 ### Installation
 

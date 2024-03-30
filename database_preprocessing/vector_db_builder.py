@@ -9,9 +9,15 @@ import re
 from langchain_community.document_loaders import TextLoader
 from langchain_community.document_transformers import BeautifulSoupTransformer
 from langchain_core.documents.base import Document
+from dotenv import load_dotenv
 
-os.environ["COHERE_API_KEY"] = "zE6fWh7WodD48szFXjx2rX8RPEpAIqNamhjFOBL9"
-database_path = './chroma_db'
+print("Setting up the environment variables.")
+dotenv_path = os.path.join(os.path.dirname(__file__), '.env')
+load_dotenv(dotenv_path=dotenv_path)
+# This is actually not needed. As long as they are in the env is enough. 
+cohere_api_key = os.getenv('COHERE_API_KEY') 
+db_destination = os.getenv('CHROMA_DB_RES_PATH') 
+
 
 def normalize_whitespace_and_breaklines(text):
     # Collapse multiple newline characters into a single newline
@@ -56,7 +62,7 @@ def add_documents_to_vectorstore_in_batches( documents, embeddings_model, text_s
     total_splits = len(splits)
     print(f"Total splits to process: {total_splits}")
 
-    vectorstore = Chroma.from_documents(documents=documents[:1], embedding=embeddings_model,persist_directory=database_path)
+    vectorstore = Chroma.from_documents(documents=documents[:1], embedding=embeddings_model,persist_directory=db_destination, cohere_api_key=cohere_api_key)
     # Process in batches of 'batch_size'
     for start_index in range(1, total_splits, batch_size):
         end_index = min(start_index + batch_size, total_splits)
