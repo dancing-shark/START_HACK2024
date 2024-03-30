@@ -7,7 +7,7 @@ from langchain_core.runnables import RunnablePassthrough
 from langchain_groq import ChatGroq
 from langchain_core.messages import HumanMessage, AIMessage
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
-from data_models import *
+from core.data_models import *
 from langchain_community.vectorstores import Chroma
 from datetime import datetime
 

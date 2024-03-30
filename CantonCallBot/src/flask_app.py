@@ -1,5 +1,6 @@
 import base64
 import os
+from dotenv import load_dotenv
 
 import numpy as np
 from flask import Flask, render_template
@@ -13,13 +14,13 @@ from langchain_community.embeddings.cohere import CohereEmbeddings
 from langchain_groq import ChatGroq
 from torchaudio.transforms import Resample
 
-import CantonCallBot.voice_to_text as voice_to_text
+import core.voice_to_text as voice_to_text
 from pydub import AudioSegment
 
-from CantonCallBot.text_analysis import Call
-from CantonCallBot.text_to_voice import TextToVoice
-from CantonCallBot.voice_input import VoiceInput
-from CantonCallBot.voice_output_elevenLabs import TextToVoice as TTT
+from core.text_analysis import Call
+from core.text_to_voice import TextToVoice
+from core.voice_input import VoiceInput
+from core.voice_output_elevenLabs import TextToVoice as TTT
 
 app = Flask(__name__)
 CORS(app)
@@ -124,10 +125,11 @@ def send_wav_file(file_path):
 
 
 if __name__ == '__main__':
-    os.environ['COHERE_API_KEY'] = "kWLn4rRF7TgsuA9HdEmfZPH2bH8CYsB4kzgKkjCp"
-
-    chat = ChatGroq(temperature=0, groq_api_key="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",
-                    model_name="mixtral-8x7b-32768")
+    dotenv_path = os.path.join(os.path.dirname(__file__), '..', '.env')
+    load_dotenv(dotenv_path=dotenv_path)
+    cohere_api_key = os.getenv('COHERE_API_KEY') 
+    groq_api_key = os.getenv('GROQ_API_KEY') 
+    chat = ChatGroq(temperature=0, groq_api_key=groq_api_key, model_name="mixtral-8x7b-32768")
     embeddings_model_x = CohereEmbeddings(model="embed-multilingual-v3.0")
     path = "./chroma_db"
 
@@ -135,6 +137,6 @@ if __name__ == '__main__':
     mic = VoiceInput()
     vtt = voice_to_text.VoiceToText()
     # ttv = TextToVoice()
-    ttt = TTT(use_elevenlabs_api=True)
+    ttt = TTT(use_elevenlabs_api=False)
 
     socketio.run(app, host="0.0.0.0", port=8000, debug=True, allow_unsafe_werkzeug=True)

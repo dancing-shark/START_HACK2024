@@ -1,16 +1,16 @@
-from text_analysis import Call
-from voice_input import VoiceInput
-from voice_to_text import VoiceToText
-from text_to_voice import TextToVoice
-from voice_output import VoiceOutput
+from core.text_analysis import Call
+from core.voice_input import VoiceInput
+from core.voice_to_text import VoiceToText
+from core.text_to_voice import TextToVoice
+from core.voice_output import VoiceOutput
 import logging
-from voice_output_elevenLabs import TextToVoice as TTT
+from core.voice_output_elevenLabs import TextToVoice as TTT
 
 from langchain_groq import ChatGroq
 from langchain_community.embeddings.cohere import CohereEmbeddings
 
 import os
-
+from dotenv import load_dotenv
 import logging
 import colorlog
 
@@ -47,12 +47,14 @@ console_handler.setFormatter(formatter)
 logger.addHandler(console_handler)
 
 logger.info("Setting up the environment variables.")
-os.environ['COHERE_API_KEY'] = "kWLn4rRF7TgsuA9HdEmfZPH2bH8CYsB4kzgKkjCp"
+dotenv_path = os.path.join(os.path.dirname(__file__), '..', '.env')
+load_dotenv(dotenv_path=dotenv_path)
+cohere_api_key = os.getenv('COHERE_API_KEY') 
+groq_api_key = os.getenv('GROQ_API_KEY') 
 
-chat = ChatGroq(temperature=0, groq_api_key="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",
-                model_name="mixtral-8x7b-32768")
-embeddings_model_x = CohereEmbeddings(model="embed-multilingual-v3.0")
-path = "./chroma_db"
+chat = ChatGroq(temperature=0, groq_api_key=groq_api_key, model_name="mixtral-8x7b-32768")
+embeddings_model_x = CohereEmbeddings(cohere_api_key=cohere_api_key,model="embed-multilingual-v3.0")
+path = "src/chroma_db"
 
 # New Call arived
 call = Call(1, chat, embeddings_model=embeddings_model_x, path_db=path)
@@ -60,7 +62,7 @@ mic = VoiceInput()
 vtt = VoiceToText()
 ttv = TextToVoice()
 box = VoiceOutput()
-ttt = TTT(use_elevenlabs_api=True)
+ttt = TTT(use_elevenlabs_api=False)
 
 logger.info("Starting the call loop.")
 while True:
