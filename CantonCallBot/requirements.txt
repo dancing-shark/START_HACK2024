@@ -661,6 +661,9 @@ langchain==0.1.13 ; python_version >= "3.11" and python_version < "4.0" \
 langchainhub==0.1.15 ; python_version >= "3.11" and python_version < "4.0" \
     --hash=sha256:89a0951abd1db255e91c6d545d092a598fc255aa865d1ffc3ce8f93bbeae60e7 \
     --hash=sha256:fa3ff81a31946860f84c119f1e2f6b7c7707e2bd7ed2394a7313b286d59f3bda
+langdetect==1.0.9 ; python_version >= "3.11" and python_version < "4.0" \
+    --hash=sha256:7cbc0746252f19e76f77c0b1690aadf01963be835ef0cd4b56dddf2a8f1dfc2a \
+    --hash=sha256:cbc1fef89f8d062739774bd51eda3da3274006b3661d199c2655f6b3f6d605a0
 langsmith==0.1.31 ; python_version >= "3.11" and python_version < "4.0" \
     --hash=sha256:5211a9dc00831db307eb843485a97096484b697b5d2cd1efaac34228e97ca087 \
     --hash=sha256:efd54ccd44be7fda911bfdc0ead340473df2fdd07345c7252901834d0c4aa37e

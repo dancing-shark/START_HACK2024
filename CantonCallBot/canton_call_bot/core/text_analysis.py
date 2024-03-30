@@ -27,9 +27,7 @@ class Call:
         self.store = store
         self.chat = chat
         prompt = SystemMessage(content=Chatbot_personality.task)
-        prompt = (
-            prompt +MessagesPlaceholder(variable_name="history")+"{context}"+"{question}"+"Respond in {language}"
-        ) 
+        prompt = ( prompt +MessagesPlaceholder(variable_name="history")+"{context}"+"{question}"+"Make sure to respond in the correct language: {language}") 
         if embeddings_model and path_db:
             self.embeddings_model = embeddings_model
             self.vectorstore = Chroma(persist_directory=path_db, embedding_function=self.embeddings_model)
@@ -72,7 +70,6 @@ class Call:
         """Process the user's input keeping the chat history, retrieval and return the AI's response."""
         print("Processing with retrieval")
         self.protokoll.language = language
-
         response = self.rag_chain.invoke({"question":text, "language":language},{"configurable":{"user_id":"1","conversation_id":"1"}})
         return response
 
